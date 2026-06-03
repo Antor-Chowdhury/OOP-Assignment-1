@@ -47,6 +47,10 @@ namespace BusTicketSystem.Models
 
         public void ReserveSeat(int seatNumber)
         {
+            if (_reservedSeats.Contains(seatNumber))
+            {
+                throw new InvalidOperationException("Seat is already reserved.");
+            }
             _reservedSeats.Add(seatNumber);
         }
 
